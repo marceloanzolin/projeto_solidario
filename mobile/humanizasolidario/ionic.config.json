@@ -1,0 +1,7 @@
+{
+  "name": "humanizasolidario",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
