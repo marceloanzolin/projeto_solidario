@@ -4,6 +4,7 @@ import {HomePage} from "../home/home";
 //import {RegisterPage} from "../register/register";
 //import {TripsPage} from "../trips/trips";
 import { InstituicaoPage } from "../instituicao/instituicao";
+import { LoginPage } from "../login/login";
 
 @Component({
   selector: 'page-tpusuario',
@@ -19,6 +20,11 @@ export class TpusuarioPage {
   register() {
   //  this.nav.setRoot(RegisterPage);
   }
+
+  souvoluntario() {
+    this.nav.setRoot(LoginPage);
+    //  this.nav.setRoot(RegisterPage);
+    }
 
   // login and go to home page
   querodoar() {

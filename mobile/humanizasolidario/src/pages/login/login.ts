@@ -16,12 +16,14 @@ export class LoginPage {
   // go to register page
   register() {
     this.nav.setRoot(RegisterPage);
+    //this.nav.setRoot(RegisterPage);
   }
 
   // login and go to home page
   login() {
-    //this.nav.setRoot(HomePage);
+    ///this.nav.setRoot(HomePage);
     this.nav.setRoot(HomePage)
+    //this.nav.setRoot(RegisterPage);
   }
 
   forgotPass() {
