@@ -9,7 +9,9 @@ import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { TpusuarioPage } from "../pages/tpusuario/tpusuario";
+import { InstituicaoDetailPage } from "../pages/instituicao-detail/instituicao-detail";
 import { InstituicaoPage } from "../pages/instituicao/instituicao";
+import { RegisterPage } from "../pages/register/register";
 
 export interface MenuItem {
     title: string;
@@ -24,7 +26,7 @@ export interface MenuItem {
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TpusuarioPage;//LoginPage;
+  rootPage: any = TpusuarioPage;//LoginPage;///TpusuarioPage;//LoginPage;
 
   appMenuItems: Array<MenuItem>;
 

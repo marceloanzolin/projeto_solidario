@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {InstituicaoService} from "../../services/instituicao-service";
-//import {TripDetailPage} from "../trip-detail/trip-detail";
+import {InstituicaoDetailPage} from "../instituicao-detail/instituicao-detail";
 
 @Component({
   selector: 'page-instituicao',
@@ -18,6 +18,6 @@ export class InstituicaoPage {
 
   // view trip detail
   viewDetail(id) {
-   // this.nav.push(TripDetailPage, {id: id});
+    this.nav.push(InstituicaoDetailPage, {id: id});
   }
 }

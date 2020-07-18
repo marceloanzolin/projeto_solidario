@@ -2,22 +2,23 @@ import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {TripService} from "../../services/trip-service";
 import {CheckoutTripPage} from "../checkout-trip/checkout-trip";
+import { InstituicaoService } from "../../services/instituicao-service";
 
 @Component({
-  selector: 'page-trip-detail',
-  templateUrl: 'trip-detail.html'
+  selector: 'page-instituicao-detail',
+  templateUrl: 'instituicao-detail.html'
 })
-export class TripDetailPage {
+export class InstituicaoDetailPage {
   // trip info
-  public trip: any;
+  public instituicao: any;
   // number of adult
   public adults = 2;
   // number of children
   public children = 0;
 
-  constructor(public nav: NavController, public tripService: TripService) {
+  constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
     // set sample data
-    this.trip = tripService.getItem(1);
+    this.instituicao = instituicaoService.getItem(1);
   }
 
   // minus adult when click minus button

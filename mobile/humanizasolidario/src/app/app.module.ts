@@ -22,7 +22,7 @@ import {LoginPage} from "../pages/login/login";
 import {NotificationsPage} from "../pages/notifications/notifications";
 import {RegisterPage} from "../pages/register/register";
 import {SearchLocationPage} from "../pages/search-location/search-location";
-import {TripDetailPage} from "../pages/trip-detail/trip-detail";
+import {InstituicaoDetailPage} from "../pages/instituicao-detail/instituicao-detail";
 import {TripsPage} from "../pages/trips/trips";
 import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import {TpusuarioPage} from "../pages/tpusuario/tpusuario";
@@ -48,7 +48,7 @@ import { T } from '@angular/core/src/render3';
     NotificationsPage,
     RegisterPage,
     SearchLocationPage,
-    TripDetailPage,
+    InstituicaoDetailPage,
     TripsPage,
     TpusuarioPage,
     InstituicaoPage
@@ -77,7 +77,7 @@ import { T } from '@angular/core/src/render3';
     NotificationsPage,
     RegisterPage,
     SearchLocationPage,
-    TripDetailPage,
+    InstituicaoDetailPage,
     TripsPage,
     TpusuarioPage,
     InstituicaoPage
