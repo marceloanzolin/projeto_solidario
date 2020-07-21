@@ -4,10 +4,7 @@
 
     <!-- Logo -->
     <div padding text-center>
-      <div class="logo"></div>
-      <h2 ion-text class="text-primary">
-        <strong>Ionic 3</strong> Start Theme
-      </h2>
+      <div class="logo register"></div>
     </div>
 
     <!-- Login form -->
@@ -15,7 +12,7 @@
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
-          Full Name
+          Nome Completo
         </ion-label>
         <ion-input type="text"></ion-input>
       </ion-item>
@@ -39,12 +36,10 @@
 
     <div margin-top>
       <button ion-button block color="dark" tappable (click)="register()">
-        SIGN UP
+        Cadastrar
       </button>
 
-      <p text-center ion-text color="secondary">Or Sign Up with:</p>
-
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row>
           <ion-col col-4>
             <button ion-button icon-only block class="btn-facebook">
@@ -62,12 +57,12 @@
             </button>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
     </div>
 
     <!-- Other links -->
     <div text-center margin-top>
-      <span ion-text color="primary" tappable (click)="login()">I have an account</span>
+      <span ion-text color="primary" tappable (click)="login()">Já sou cadastrado</span>
     </div>
 
   </div>
