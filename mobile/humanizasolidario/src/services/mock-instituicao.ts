@@ -18,11 +18,10 @@ export let INSTITUICOES = [
       "assets/img/trip/thumb/trip_8.jpg",
     ],
     highlights: [
-      "Numerous kiosks",
-      "First in a string of Atlantic Ocean-facing beaches",
-      "Sand is flanked by mountains in the background",
-      "Swing in the turquoise waters",
-      "Water Sports",
+      "Alimentos não períciveis",
+      "Produtos de Limpeza",
+      "Roupas de Inverno",
+      "Remédios",
     ]
   },
   {

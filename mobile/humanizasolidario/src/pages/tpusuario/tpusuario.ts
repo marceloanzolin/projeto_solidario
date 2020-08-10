@@ -23,14 +23,11 @@ export class TpusuarioPage {
 
   souvoluntario() {
     this.nav.setRoot(LoginPage);
-    //  this.nav.setRoot(RegisterPage);
     }
 
   // login and go to home page
   querodoar() {
-    //this.nav.setRoot(HomePage);
     this.nav.setRoot(InstituicaoPage);
-    //this.nav.setRoot(TripsPage);
   }
 
   forgotPass() {
