@@ -21,7 +21,7 @@ export class TpusuarioPage {
   //  this.nav.setRoot(RegisterPage);
   }
 
-  souvoluntario() {
+  souInstituicao() {
     this.nav.setRoot(LoginPage);
     }
 
