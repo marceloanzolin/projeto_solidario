@@ -7,3 +7,4 @@ npm install @ionic/app-scripts@latest --save-dev
 
 sudo npm cache clean --force
 sudo npm install -g node-sass@4.5.0 --unsafe-perm=true --allow-root
+

@@ -1,22 +1,25 @@
-<!-- -->
+<ion-header>
+  <ion-navbar  color="primary">
+    <ion-title>
+      <span ion-text>Instituição</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content class="auth-page">
   <div class="login-content">
-
-    <!-- Logo -->
-    <div padding text-center>
-      <div class="logo register"></div>
-    </div>
-
     <!-- Login form -->
-    <form class="list-form">
+    <form class="list-form mg-top-250">
+      <!-- nminstituicao -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
-          Nome Completo
+          Instituição
         </ion-label>
         <ion-input type="text"></ion-input>
       </ion-item>
 
+      <!-- dsemail -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
@@ -25,13 +28,73 @@
         <ion-input type="email"></ion-input>
       </ion-item>
 
+      <!-- dssenha -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
-          Password
+          Senha
         </ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
+
+      <!-- dsfone1 -->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="phone-portrait" item-start class="text-primary"></ion-icon>
+          Telefone
+        </ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <!-- dsfone2 -->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="phone-portrait" item-start class="text-primary"></ion-icon>
+          Celular
+        </ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <!-- dsdescricao -->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="ios-paper-outline" item-start class="text-primary"></ion-icon>
+          Descrição
+        </ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+
+       <!-- logo -->
+       <ion-item>
+        <ion-label class="text-primary">
+          <ion-icon name="photos" item-start class="text-primary"></ion-icon>
+          Logo
+        </ion-label>
+      </ion-item>
+      <button expand="full">
+        <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
+          accept="image/png, image/jpeg">
+      </button>
+      
+      <!-- dsendereco -->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="md-home" item-start class="text-primary"></ion-icon>
+          Endereço
+        </ion-label>
+        <ion-input type="street-address"></ion-input>
+      </ion-item>
+
+      <!-- dscep -->
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="locate" item-start class="text-primary"></ion-icon>
+          CEP
+        </ion-label>
+        <ion-input type="street-address"></ion-input>
+      </ion-item>
+      
+     
     </form>
 
     <div margin-top>
