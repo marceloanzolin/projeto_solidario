@@ -2,18 +2,30 @@ import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {InstituicaoService} from "../../services/instituicao-service";
 import {InstituicaoDetailPage} from "../instituicao-detail/instituicao-detail";
-
+import { IonicPage, NavParams, ToastController, InfiniteScroll } from 'ionic-angular';
+import { controlNameBinding } from "@angular/forms/src/directives/reactive_directives/form_control_name";
+import {Instituicao} from "../../models/instituicao";
 @Component({
   selector: 'page-instituicao',
   templateUrl: 'instituicao.html'
 })
 export class InstituicaoPage {
   // list of trips
-  public instituicoes: any;
+  //public linstituicoes: any;
+ public  instituicoes: any;
+ public  instituicoesara: any;
+ public  instituicao:any;
+ instituicoesData: any;
+
 //trips
   constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
-    // set sample data
-    this.instituicoes = instituicaoService.getAll();
+
+    this.instituicaoService.getAll().subscribe(response => {
+			console.log(response);
+			this.instituicoesData = response;
+    })
+
+
   }
 
   // view trip detail

@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -28,6 +29,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
 import {TpusuarioPage} from "../pages/tpusuario/tpusuario";
 import {InstituicaoPage} from "../pages/instituicao/instituicao";
 import { T } from '@angular/core/src/render3';
+import { InstituicaoServiceProvider } from '../providers/instituicao-service/instituicao-service';
 
 
 // import services
@@ -56,6 +58,7 @@ import { T } from '@angular/core/src/render3';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, {
       scrollPadding: false,
       scrollAssist: true,
@@ -90,7 +93,8 @@ import { T } from '@angular/core/src/render3';
     TripService,
     InstituicaoService,
     WeatherProvider,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    InstituicaoServiceProvider
   ]
 })
 

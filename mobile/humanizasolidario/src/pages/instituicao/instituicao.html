@@ -15,13 +15,14 @@
 
 </ion-header>
 
+
 <ion-content padding class="trips detail-bg">
   <!--list of trips-->
-  <div class="trip card" *ngFor="let trip of instituicoes" tappable (click)="viewDetail(trip.id)" margin-bottom>
+  <div class="trip card" *ngFor="let trip of instituicoesData" tappable (click)="viewDetail(trip.id)" margin-bottom>
     <div class="background border-bottom" [ngStyle]="{'background-image': 'url(' + trip.thumb + ')'}">
       <div class="background-filter rlt">s
         <div class="align-bottom" padding-left padding-right>
-          <h6 class="pull-left text-white" ion-text>{{ trip.name }}</h6>
+          <h6 class="pull-left text-white" ion-text>{{ trip.nminstituicao }}</h6>
           <!--<h6 class="pull-right text-white" ion-text>{{ trip.price_adult | currency:'USD':true }}</h6>-->
           <div class="clear"></div>
         </div>
