@@ -50,41 +50,20 @@ getAll(): Observable<Instituicao>   {
 
 save(post){
   post.instituicao.dsstatus = 'A';
-  
-  this.http.post(this.base_path, post.instituicao).subscribe(data => {
-    
-      // let alert = this.alertCtrl.create({
-      //   title: 'Confirm purchase',
-      //   message: 'Do you want to buy this book?',
-      //   buttons: [
-      //     {
-      //       text: 'Cancel',
-      //       role: 'cancel',
-      //       handler: () => {
-      //         console.log('Cancel clicked');
-      //       }
-      //     },
-      //     {
-      //       text: 'Buy',
-      //       handler: () => {
-      //         this.nav.setRoot(LoginPage);
-      //       }
-      //     }
-      //   ]
-      // });
-      // alert.present();
-    
-      console.log(JSON.stringify(data));
-  }, error => {
+
+  return new Promise((resolve, reject) => {
+     this.http.post(this.base_path, post.instituicao).subscribe(data => {
+      //  console.log(JSON.stringify(data));
+       resolve(JSON.stringify(data));
+     }, error => {
       console.log(JSON.stringify(error));
-  });
+      reject(JSON.stringify(error));
+     });
+   });
 }
 
 
    // return new Promise((resolve, reject) => {
-
-   
-
     //  return this.http
  //     .get(this.base_path)
      // .pipe(

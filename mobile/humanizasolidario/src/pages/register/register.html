@@ -9,7 +9,7 @@
 <ion-content class="auth-page">
   <div class="login-content">
     <!-- Login form -->
-    <form class="list-form mg-top-250" (ngSubmit)="register()">
+    <form class="list-form mg-top-350" (ngSubmit)="register()">
       <!-- nminstituicao -->
       <ion-item>
         <ion-label floating>
@@ -35,6 +35,14 @@
           Senha *
         </ion-label>
         <ion-input type="password" [(ngModel)]="instituicao.dssenha" name="dssenha"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Repita a senha *
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="instituicao.dssenha2" name="dssenha2"></ion-input>
       </ion-item>
 
       <!-- dsfone1 -->

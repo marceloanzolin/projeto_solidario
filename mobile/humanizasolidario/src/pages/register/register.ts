@@ -20,6 +20,7 @@ export class RegisterPage {
     dsfone1: "",
     dsfone2: "",
     dssenha: "",
+    dssenha2: "",
     dsstatus: "",
     logo: "",
     nminstituicao: ""
@@ -30,6 +31,7 @@ export class RegisterPage {
 
   // register and go to home page
   register() {
+    // console.log(this.instituicao)
     if (this.instituicao.nminstituicao == "" || this.instituicao.dsemail == "" || this.instituicao.dssenha == "" ||this.instituicao.dsendereco == "") {
       const alert = this.alertCtrl.create({
         title: "Atenção",
@@ -37,10 +39,18 @@ export class RegisterPage {
         buttons: ["OK"]
       });
       alert.present();
+    }else if (this.instituicao.dssenha != this.instituicao.dssenha2) {
+      const alert = this.alertCtrl.create({
+        title: "Atenção",
+        subTitle: "Senhas informadas devem ser iguais",
+        buttons: ["OK"]
+      });
+      alert.present();
     } else {
-      this.instituicaoService.save(this);
+      let ret = this.instituicaoService.save(this);
+      console.log(ret);
+      // this.login();
     }
-    // console.log(this.instituicao)
     // this.nav.setRoot(HomePage);
   }
 
