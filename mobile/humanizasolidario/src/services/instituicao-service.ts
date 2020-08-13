@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable } from 'rxjs/Observable';
 import { map, catchError,retry } from 'rxjs/operators';
 import { Instituicao } from  '../models/instituicao';
+import { AlertController } from 'ionic-angular';
 
 
 //import {throwError } from 'rxjs';
@@ -21,7 +22,7 @@ export class InstituicaoService{
 
 base_path = 'http://localhost:3000/instituicao';
 
-	constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient, private alertCtrl: AlertController) { }
 
 // Get Game data
 getAll(): Observable<Instituicao>   {
@@ -33,6 +34,50 @@ getAll(): Observable<Instituicao>   {
     catchError(this.handleError)
   )
    
+}
+
+// update(instituicao){
+//   let body = new URLSearchParams();
+//   for(let key in instituicao) {
+//     body.set(key, instituicao[key]);
+//   }
+// // And use body.toString() for the body
+
+// console.log(body.toString());
+// this.http.put(this.base_path, body.toString(), null).subscribe();
+// }
+
+
+save(post){
+  post.instituicao.dsstatus = 'A';
+  
+  this.http.post(this.base_path, post.instituicao).subscribe(data => {
+    
+      // let alert = this.alertCtrl.create({
+      //   title: 'Confirm purchase',
+      //   message: 'Do you want to buy this book?',
+      //   buttons: [
+      //     {
+      //       text: 'Cancel',
+      //       role: 'cancel',
+      //       handler: () => {
+      //         console.log('Cancel clicked');
+      //       }
+      //     },
+      //     {
+      //       text: 'Buy',
+      //       handler: () => {
+      //         this.nav.setRoot(LoginPage);
+      //       }
+      //     }
+      //   ]
+      // });
+      // alert.present();
+    
+      console.log(JSON.stringify(data));
+  }, error => {
+      console.log(JSON.stringify(error));
+  });
 }
 
 

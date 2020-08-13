@@ -1,9 +1,9 @@
 export class Instituicao {
 
-    dsemail: string;
-    dssenha: string;
-    nminstituicao: string;
-    dsendereco: string;
+  dsemail: string;
+  dssenha: string;
+  nminstituicao: string;
+  dsendereco: string;
   dsdescricao :  string;
   dscep :  string;
   dsfone1 : string;

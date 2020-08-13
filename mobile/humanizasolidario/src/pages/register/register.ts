@@ -1,22 +1,47 @@
 import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {LoginPage} from "../login/login";
+import {InstituicaoService} from "../../services/instituicao-service";
 import {HomePage} from "../home/home";
 import {TpusuarioPage} from "../tpusuario/tpusuario";
 import {InstituicaoPage} from "../instituicao/instituicao";
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html'
 })
 export class RegisterPage {
+  instituicao = {
+    dscep: "",
+    dsdescricao: "",
+    dsemail: "",
+    dsendereco: "",
+    dsfone1: "",
+    dsfone2: "",
+    dssenha: "",
+    dsstatus: "",
+    logo: "",
+    nminstituicao: ""
+  }
 
-  constructor(public nav: NavController) {
+  constructor(public nav: NavController, public instituicaoService: InstituicaoService, private alertCtrl: AlertController) {
   }
 
   // register and go to home page
   register() {
-    this.nav.setRoot(HomePage);
+    if (this.instituicao.nminstituicao == "" || this.instituicao.dsemail == "" || this.instituicao.dssenha == "" ||this.instituicao.dsendereco == "") {
+      const alert = this.alertCtrl.create({
+        title: "Atenção",
+        subTitle: "Informe os campos obrigatórios",
+        buttons: ["OK"]
+      });
+      alert.present();
+    } else {
+      this.instituicaoService.save(this);
+    }
+    // console.log(this.instituicao)
+    // this.nav.setRoot(HomePage);
   }
 
   // go to login page
@@ -24,28 +49,5 @@ export class RegisterPage {
     this.nav.setRoot(LoginPage);
   }
 
-  loadImageFromDevice(event) {
-    const file = event.target.files[0];
-  
-    const reader = new FileReader();
-  
-    reader.readAsArrayBuffer(file);
-  
-    reader.onload = () => {
-  
-      // get the blob of the image:
-      let blob: Blob = new Blob([new Uint8Array((reader.result as ArrayBuffer))]);
-  
-      // create blobURL, such that we could use it in an image element:
-      let blobURL: string = URL.createObjectURL(blob);
-      console.log(blobURL);
-  
-    };
-  
-    reader.onerror = (error) => {
-      console.log('Error on upload image');
-      //handle errors
-  
-    };
-  };
+ 
 }

@@ -9,32 +9,32 @@
 <ion-content class="auth-page">
   <div class="login-content">
     <!-- Login form -->
-    <form class="list-form mg-top-250">
+    <form class="list-form mg-top-250" (ngSubmit)="register()">
       <!-- nminstituicao -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
-          Instituição
+          Instituição *
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="instituicao.nminstituicao" name="nminstituicao"></ion-input>
       </ion-item>
 
       <!-- dsemail -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
-          Email
+          Email *
         </ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="instituicao.dsemail" name="dsemail"></ion-input>
       </ion-item>
 
       <!-- dssenha -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
-          Senha
+          Senha *
         </ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="instituicao.dssenha" name="dssenha"></ion-input>
       </ion-item>
 
       <!-- dsfone1 -->
@@ -43,7 +43,7 @@
           <ion-icon name="phone-portrait" item-start class="text-primary"></ion-icon>
           Telefone
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="tel" [(ngModel)]="instituicao.dsfone1" name="dsfone1"></ion-input>
       </ion-item>
 
       <!-- dsfone2 -->
@@ -52,7 +52,7 @@
           <ion-icon name="phone-portrait" item-start class="text-primary"></ion-icon>
           Celular
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="tel" [(ngModel)]="instituicao.dsfone2" name="dsfone2"></ion-input>
       </ion-item>
 
       <!-- dsdescricao -->
@@ -61,28 +61,25 @@
           <ion-icon name="ios-paper-outline" item-start class="text-primary"></ion-icon>
           Descrição
         </ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-textarea [(ngModel)]="instituicao.dsdescricao" name="dsdescricao"></ion-textarea>
       </ion-item>
 
        <!-- logo -->
        <ion-item>
-        <ion-label class="text-primary">
+        <ion-label floating>
           <ion-icon name="photos" item-start class="text-primary"></ion-icon>
-          Logo
+          URL Logo
         </ion-label>
+        <ion-input type="text" [(ngModel)]="instituicao.logo" name="logo"></ion-input>
       </ion-item>
-      <button expand="full">
-        <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
-          accept="image/png, image/jpeg">
-      </button>
       
       <!-- dsendereco -->
       <ion-item>
         <ion-label floating>
           <ion-icon name="md-home" item-start class="text-primary"></ion-icon>
-          Endereço
+          Endereço *
         </ion-label>
-        <ion-input type="street-address"></ion-input>
+        <ion-input type="street-address" [(ngModel)]="instituicao.dsendereco" name="dsendereco"></ion-input>
       </ion-item>
 
       <!-- dscep -->
@@ -91,16 +88,16 @@
           <ion-icon name="locate" item-start class="text-primary"></ion-icon>
           CEP
         </ion-label>
-        <ion-input type="street-address"></ion-input>
+        <ion-input type="numeric" [(ngModel)]="instituicao.dscep" name="dscep"></ion-input>
       </ion-item>
       
      
+      <button ion-button block color="dark" tappable type="submit">
+        Cadastrar
+      </button>
     </form>
 
     <div margin-top>
-      <button ion-button block color="dark" tappable (click)="register()">
-        Cadastrar
-      </button>
 
       <!-- <ion-grid>
         <ion-row>
