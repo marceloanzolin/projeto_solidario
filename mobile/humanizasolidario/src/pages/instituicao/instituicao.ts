@@ -15,6 +15,7 @@ export class InstituicaoPage {
  public  instituicoes: any;
  public  instituicoesara: any;
  public  instituicao:any;
+ public totalinstituicao:Number;
  instituicoesData: any;
 
 //trips
@@ -22,14 +23,14 @@ export class InstituicaoPage {
 
     this.instituicaoService.getAll().subscribe(response => {
 			console.log(response);
-			this.instituicoesData = response;
+      this.instituicoesData = response;
+      this.totalinstituicao = this.instituicoesData.length  
     })
-
-
   }
 
-  // view trip detail
   viewDetail(id) {
     this.nav.push(InstituicaoDetailPage, {id: id});
   }
+
+  
 }

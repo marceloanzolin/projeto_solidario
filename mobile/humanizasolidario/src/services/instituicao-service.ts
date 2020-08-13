@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {INSTITUICOES} from "./mock-instituicao";
+import { Injectable } from "@angular/core";
+import { INSTITUICOES } from "./mock-instituicao";
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -8,33 +8,53 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError,retry } from 'rxjs/operators';
 import { Instituicao } from  '../models/instituicao';
 import { AlertController } from 'ionic-angular';
-
-
 //import {throwError } from 'rxjs';
 
 //i//mport { Game } from '../models/game';
 
 @Injectable()
-export class InstituicaoService{
+export class InstituicaoService {
   private instituicoes: any;
   private API_URL = 'http://localhost:3000/instituicao';
   url: string;
 
-base_path = 'http://localhost:3000/instituicao';
+  base_path = 'http://localhost:3000/instituicao';
 
 	constructor(private http: HttpClient, private alertCtrl: AlertController) { }
+  // Get Game data
+  getAll(): Observable<Instituicao> {
 
-// Get Game data
-getAll(): Observable<Instituicao>   {
- 
-  return this.http
-  .get<Instituicao>(this.base_path)
-  .pipe(
-    retry(2),
-    catchError(this.handleError)
-  )
-   
-}
+    return this.http
+      .get<Instituicao>(this.base_path)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+
+  }
+
+
+  getItem(id): Observable<Instituicao> {
+
+    return this.http
+      .get<Instituicao>('http://localhost:3000/instituicao/' + id)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+
+  }
+
+  getCampanha(codinstituicao): Observable<Instituicao> {
+
+    return this.http
+      .get<Instituicao>('http://localhost:3000/campanha/' + codinstituicao)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+
+  }
 
 // update(instituicao){
 //   let body = new URLSearchParams();
@@ -61,7 +81,6 @@ save(post){
      });
    });
 }
-
 
    // return new Promise((resolve, reject) => {
     //  return this.http
@@ -146,13 +165,16 @@ save(post){
 
   //}
 
+  remove(item) {
+    this.instituicoes.splice(this.instituicoes.indexOf(item), 1);
+  }
 
   private extractData(res: Response) {
     let body = res;
     return body || {};
   }
-  
-  private handleError (error: Response | any) {
+
+  private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const err = error || '';
@@ -163,18 +185,5 @@ save(post){
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  
-  
-  getItem(id) {
-    for (var i = 0; i < this.instituicoes.length; i++) {
-      if (this.instituicoes[i].id === parseInt(id)) {
-        return this.instituicoes[i];
-      }
-    }
-    return null;
-  }
 
-  remove(item) {
-    this.instituicoes.splice(this.instituicoes.indexOf(item), 1);
-  }
 }

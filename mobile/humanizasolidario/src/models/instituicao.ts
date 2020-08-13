@@ -1,5 +1,5 @@
 export class Instituicao {
-
+  codinstituicao: string;
   dsemail: string;
   dssenha: string;
   nminstituicao: string;
@@ -11,6 +11,4 @@ export class Instituicao {
   dslinkmaps :  string;
   dsstatus : string;
   logo :   string;
-
-
 }

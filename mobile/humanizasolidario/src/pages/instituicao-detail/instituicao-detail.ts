@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
-import {NavController} from "ionic-angular";
-import {TripService} from "../../services/trip-service";
-import {CheckoutTripPage} from "../checkout-trip/checkout-trip";
+import { Component } from "@angular/core";
+import { NavController } from "ionic-angular";
+import { TripService } from "../../services/trip-service";
+import { CheckoutTripPage } from "../checkout-trip/checkout-trip";
 import { InstituicaoService } from "../../services/instituicao-service";
 
 @Component({
@@ -18,7 +18,11 @@ export class InstituicaoDetailPage {
 
   constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
     // set sample data
-    this.instituicao = instituicaoService.getItem(1);
+    this.instituicao = instituicaoService.getItem(1).subscribe(response => {
+      console.log(response);
+      this.instituicao = response;
+    })
+
   }
 
   // minus adult when click minus button
