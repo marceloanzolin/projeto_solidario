@@ -1,7 +1,7 @@
 cd mobile/humazizasolidario
 ionic serve -l
 
-# Ionic 3 Start Theme
+# Amigos Solidários
 
 Ionic 3 Theme Starter with 10 Pages, mock data, providers samples, Storage, Http and more. Optimized to be performatic at any platform app (Android & iOS) and Web Apps (PWA).
 
