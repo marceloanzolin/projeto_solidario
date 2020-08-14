@@ -47,16 +47,25 @@ export class RegisterPage {
       });
       alert.present();
     } else {
-      let ret = this.instituicaoService.save(this);
-      console.log(ret);
-      // this.login();
+      var ret = this.instituicaoService.save(this).subscribe(response => {
+        console.log(response);
+        if (response.id > 0) {
+          this.login('Cadastro realizado com sucesso');
+        }else{
+          const alert = this.alertCtrl.create({
+            title: "Atenção",
+            subTitle: "Ocorreu algum erro, tente novamente",
+            buttons: ["OK"]
+          });
+          alert.present();
+        }
+      })
     }
-    // this.nav.setRoot(HomePage);
   }
 
   // go to login page
-  login() {
-    this.nav.setRoot(LoginPage);
+  login(msg) {
+    this.nav.setRoot(LoginPage, {msg: msg});
   }
 
  

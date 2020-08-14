@@ -2,15 +2,36 @@ import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {RegisterPage} from "../register/register";
+import {InstituicaoDetailPage} from "../instituicao-detail/instituicao-detail";
+import {InstituicaoService} from "../../services/instituicao-service";
+import { NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  instituicao = {
+    codinstituicao: "",
+    dsemail: "",
+    dssenha: ""
+  }
+  private msg : string ;
 
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+
+  constructor(public nav: NavController, public navParams: NavParams, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController, public instituicaoService: InstituicaoService) {
     this.menu.swipeEnable(false);
+    this.msg = this.navParams.get("msg");
+    console.log(this.msg);
+
+    if (this.msg != '' && this.msg != undefined) {
+      let toast = this.toastCtrl.create({
+        message: 'Cadastro realizado com sucesso',
+        duration: 6000,
+        position: 'top'
+      });
+      toast.present();
+    }
   }
 
   // go to register page
@@ -21,9 +42,14 @@ export class LoginPage {
 
   // login and go to home page
   login() {
-    ///this.nav.setRoot(HomePage);
-    this.nav.setRoot(HomePage)
-    //this.nav.setRoot(RegisterPage);
+    var ret = this.instituicaoService.getItem(1).subscribe(response => {
+      console.log(response);
+      if (response.codinstituicao > 0) {
+        this.nav.push(InstituicaoDetailPage, {id: response.codinstituicao});
+      }
+    })
+    //this.nav.setRoot(HomePage)
+    
   }
 
   forgotPass() {

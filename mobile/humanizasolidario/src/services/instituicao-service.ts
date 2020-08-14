@@ -67,20 +67,30 @@ export class InstituicaoService {
 // this.http.put(this.base_path, body.toString(), null).subscribe();
 // }
 
+save(post): Observable<Instituicao> {
 
-save(post){
-  post.instituicao.dsstatus = 'A';
+  return this.http
+    .post<Instituicao>(this.base_path, post.instituicao)
+    .pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
 
-  return new Promise((resolve, reject) => {
-     this.http.post(this.base_path, post.instituicao).subscribe(data => {
-      //  console.log(JSON.stringify(data));
-       resolve(JSON.stringify(data));
-     }, error => {
-      console.log(JSON.stringify(error));
-      reject(JSON.stringify(error));
-     });
-   });
 }
+
+// save(post){
+//   post.instituicao.dsstatus = 'A';
+
+//   return new Promise((resolve, reject) => {
+//      this.http.post(this.base_path, post.instituicao).subscribe(data => {
+//       //  console.log(JSON.stringify(data));
+//        resolve(JSON.stringify(data));
+//      }, error => {
+//       console.log(JSON.stringify(error));
+//       reject(JSON.stringify(error));
+//      });
+//    });
+// }
 
    // return new Promise((resolve, reject) => {
     //  return this.http
