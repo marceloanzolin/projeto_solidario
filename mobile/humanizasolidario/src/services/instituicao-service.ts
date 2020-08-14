@@ -58,7 +58,7 @@ export class InstituicaoService {
 
   save(post): Observable<Instituicao> {
     return this.http
-      .post<Instituicao>(this.API_URL+'instituicao', post.instituicao)
+      .get<Campanha>('http://localhost:3000/campanha/' + codcampanha)
       .pipe(
         retry(2),
         catchError(this.handleError)
