@@ -49,7 +49,7 @@ export class RegisterPage {
     } else {
       var ret = this.instituicaoService.save(this).subscribe(response => {
         console.log(response);
-        if (parseInt(response.id) > 0) {
+        if (parseInt(response.codinstituicao) > 0) {
           this.login('Cadastro realizado com sucesso');
         }else{
           const alert = this.alertCtrl.create({
