@@ -33,5 +33,9 @@ export class InstituicaoPage {
     this.nav.push(InstituicaoDetailPage, {id: id});
   }
 
+  viewLocalDoacaao(id) {
+    this.nav.push(InstituicaoDetailPage, {id: id});
+  }
+
   
 }

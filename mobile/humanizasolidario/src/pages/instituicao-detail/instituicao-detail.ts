@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
-import { TripService } from "../../services/trip-service";
-import { CheckoutTripPage } from "../checkout-trip/checkout-trip";
+import { NavController, NavParams } from "ionic-angular";
 import { InstituicaoService } from "../../services/instituicao-service";
 
 
@@ -14,31 +12,45 @@ export class InstituicaoDetailPage {
   public instituicao: any;
 
   public listacampanha: any;
+  public listalocaldoacao: any;
   // number of adult
   public adults = 2;
   // number of children
   public children = 0;
 
   campanhasData: any;
+  doacaoData: any;
 
-  constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
+  constructor(public nav: NavController, public instituicaoService: InstituicaoService,public navParams: NavParams) {
     // set sample data
-    this.instituicao = instituicaoService.getItem(1).subscribe(response => {
+
+    let id = navParams.get('id');
+
+    this.instituicao = instituicaoService.getItem(id).subscribe(response => {
       console.log(response);
       this.instituicao = response;
     })
 
-    this.listacampanha = instituicaoService.getCampanha(1).subscribe(response => {
+    this.listacampanha = instituicaoService.getCampanha(id).subscribe(response => {
       console.log(response);
       this.campanhasData = response;
-    //  .split(’,’)
     })
 
   }
 
+
+  buscalocaldoar(id) {
+   
+    this.listalocaldoacao =this.instituicaoService.getLocaldoacao(id).subscribe(response => {
+      console.log(response);
+      this.doacaoData = response;
+      console.log(response);
+    })
+  }
   // minus adult when click minus button
   minusAdult() {
     this.adults--;
+
   }
 
   // plus adult when click plus button
@@ -58,6 +70,6 @@ export class InstituicaoDetailPage {
 
   // go to checkout page
   checkout() {
-    this.nav.push(CheckoutTripPage);
+  //  this.nav.push(CheckoutTripPage);
   }
 }
