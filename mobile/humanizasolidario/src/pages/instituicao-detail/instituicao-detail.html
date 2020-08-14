@@ -39,28 +39,31 @@
 
 
       <ion-segment color="secondary" [(ngModel)]="paymethods">
-        <ion-segment-button value="itens{capanhas.codcampanha}">
+        <ion-segment-button value="itens{{ capanhas.codcampanha }}">
           Itens Doar
         </ion-segment-button>
-        <ion-segment-button value="onde{capanhas.codcampanha}">
+        <ion-segment-button value="onde{{ capanhas.codcampanha }}" (click)="buscalocaldoar(capanhas.codcampanha);">
           Onde Doar
         </ion-segment-button>
       </ion-segment>
 
+
       <div [ngSwitch]="paymethods">
-        <ion-grid *ngSwitchCase="'itens{capanhas.codcampanha}'" padding>
+        <ion-grid *ngSwitchCase="'itens'+capanhas.codcampanha" padding>
           <div class="border-bottom" padding>
-            <ion-icon name="checkmark" class="text-green">Itens Doação:</ion-icon>
-            <p ion-text class="text-center">{{ capanhas.dsitemdoar }}</p>
+            <ion-icon name="checkmark" class="text-green"></ion-icon>
+            <span ion-text class="text-center">{{ capanhas.dsitemdoar }}</span>
           </div>
         </ion-grid>
 
-        <ion-grid *ngSwitchCase="'onde{capanhas.codcampanha}'" padding>
-          <div class="border-bottom" padding>
-            <ion-icon name="checkmark" class="text-green">Locais</ion-icon>
-            <p ion-text class="text-center">{{ capanhas.dsitemdoar }}</p>
-          </div>
 
+
+        <ion-grid *ngSwitchCase="'onde'+capanhas.codcampanha" padding>
+          <div class="border-bottom" padding>
+            <div *ngFor="let localdoacao of doacaoData" tappable margin-bottom>
+              <ion-icon name="checkmark" class="text-green"></ion-icon> <span ion-text class="text-center">{{ localdoacao.dslocal }}  - {{localdoacao.dsfone1}}  -  {{localdoacao.dsendereco}}</span>
+            </div>
+          </div>
         </ion-grid>
       </div>
 
