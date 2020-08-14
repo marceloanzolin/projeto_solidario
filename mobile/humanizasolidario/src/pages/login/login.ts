@@ -12,7 +12,6 @@ import { NavParams } from 'ionic-angular';
 })
 export class LoginPage {
   instituicao = {
-    codinstituicao: "",
     dsemail: "",
     dssenha: ""
   }
@@ -43,10 +42,10 @@ export class LoginPage {
   // login and go to home page
   login() {
     console.log(this.instituicao);
-    this.instituicaoService.login(this.instituicao).subscribe(response => {
+    this.instituicaoService.login(this).subscribe(response => {
       console.log(response);
       if (parseInt(response.codinstituicao) > 0) {
-        this.nav.push(InstituicaoDetailPage, {id: response.codinstituicao});
+       this.nav.push(InstituicaoDetailPage, {id: response.codinstituicao});
       }
     })
     //this.nav.setRoot(HomePage)
