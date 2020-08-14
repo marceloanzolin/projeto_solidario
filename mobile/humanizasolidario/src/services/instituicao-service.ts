@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError,retry } from 'rxjs/operators';
 import { Instituicao } from  '../models/instituicao';
 import { AlertController } from 'ionic-angular';
+import { Campanha } from "../models/campanha";
 //import {throwError } from 'rxjs';
 
 //i//mport { Game } from '../models/game';

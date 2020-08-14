@@ -1,7 +1,7 @@
 <!-- -->
 <ion-header>
 
-  <ion-navbar  color="primary">
+  <ion-navbar color="primary">
     <ion-title>
       <span ion-text>{{ instituicao.name }}</span>
     </ion-title>
@@ -11,44 +11,63 @@
 
 
 <ion-content class="common-bg">
-  <!--slides
-  <ion-slides class="to-top" pager>
-    <ion-slide *ngFor="let image of instituicao.images">
-      <img [src]="image" alt="">
-    </ion-slide>
-  </ion-slides>
--->
+
   <!--services-->
   <ion-grid class="border-bottom dark-bg">
     <ion-row>
       <ion-col text-center>
-        <span ion-text color="light">ONDE DOAR</span>
-        <div class="text-sm">
-          <div>
-            <ion-icon name="checkbox-outline" margin-left class="text-white" *ngIf="instituicao.free_cancellation"></ion-icon>
-            <!--<span ion-text color="light">{{ instituicao.time }}</span>-->
-            <span ion-text color="light">NA APAE</span>
-            <ion-icon name="checkbox-outline" margin-left class="text-white" *ngIf="instituicao.free_cancellation"></ion-icon>
-            <span ion-text color="light" *ngIf="instituicao.free_cancellation">Rádio Planalto</span>
-            <!--
-            <ion-icon name="checkbox-outline" margin-left class="text-white" *ngIf="instituicao.free_cancellation"></ion-icon>
-            <span ion-text color="light" *ngIf="instituicao.electric_voucher">Passo Fundo Shopping</span>-->
-          </div>
-        </div>
+        <span ion-text color="light" class="text-white">CAMPANHAS DA INSTITUIÇÃO</span>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <!--high light-->
-  <div class="border-bottom" padding>
-    <span ion-text color="dark" class="bold">Precisamos De</span>
-    <ul class="highlight">
-      <li *ngFor="let highlight of instituicao.highlights">
-        <ion-icon name="checkmark" class="text-green"></ion-icon>
-        <span ion-text color="primary">{{ highlight }}</span>
-      </li>
-    </ul>
-  </div>
+
+  <ion-content padding class="trip-info card round">
+    <!--list of trips-->
+
+
+    <div class="trip card" *ngFor="let capanhas of campanhasData" tappable margin-bottom>
+
+      <div class="background border-bottom">
+        <ion-toolbar padding color="light">
+          <p ion-text no-margin class="ion-text;text-white">
+            <strong>{{ capanhas.dscampanha }}</strong>
+            <!--Sem Instituições Cadastradas -->
+          </p>
+        </ion-toolbar>
+      </div>
+
+
+      <ion-segment color="secondary" [(ngModel)]="paymethods">
+        <ion-segment-button value="itens{capanhas.codcampanha}">
+          Itens Doar
+        </ion-segment-button>
+        <ion-segment-button value="onde{capanhas.codcampanha}">
+          Onde Doar
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="paymethods">
+        <ion-grid *ngSwitchCase="'itens{capanhas.codcampanha}'" padding>
+          <div class="border-bottom" padding>
+            <ion-icon name="checkmark" class="text-green">Itens Doação:</ion-icon>
+            <p ion-text class="text-center">{{ capanhas.dsitemdoar }}</p>
+          </div>
+        </ion-grid>
+
+        <ion-grid *ngSwitchCase="'onde{capanhas.codcampanha}'" padding>
+          <div class="border-bottom" padding>
+            <ion-icon name="checkmark" class="text-green">Locais</ion-icon>
+            <p ion-text class="text-center">{{ capanhas.dsitemdoar }}</p>
+          </div>
+
+        </ion-grid>
+      </div>
+
+
+    </div>
+
+  </ion-content>
 
   <!--booking form
   <div class="booking-form card round" margin>
@@ -87,8 +106,8 @@
     </div>
     <div padding class="form-bottom">
       <span ion-text color="dark" class="bold">{{ adults }} Adults</span> -->
-      <!--booking button-->
-      <!--
+  <!--booking button-->
+  <!--
       <button ion-button class="pull-right" color="secondary" tappable (click)="checkout()">Book Now {{ adults * instituicao.price_adult +
         children * instituicao.price_child | currency:'USD':true }}
       </button>
@@ -101,15 +120,16 @@
   </div>
 -->
 
-  <!--description-->
+  <!--description
   <div class="border-bottom" padding>
     <span ion-text color="primary" class="bold">Descrição</span>
     <p ion-text>{{ instituicao.description }}</p>
   </div>
 
-  <!--address-->
+  <!--address
   <div class="border-bottom" padding>
     <span ion-text color="primary" class="bold">Localização</span>
     <p ion-text>{{ instituicao.location }}</p>
   </div>
+  -->
 </ion-content>
