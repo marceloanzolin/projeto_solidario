@@ -120,3 +120,15 @@ exports.deleteAll = (req, res) => {
       });
   });
 };
+
+exports.login = (req, res) => {
+  console.log("--------------------------------");
+  console.log(req.body);
+  Instituicao.login(req.body, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message: err.message || "Erro de Login.",
+      });
+    else res.send(data);
+  });
+};

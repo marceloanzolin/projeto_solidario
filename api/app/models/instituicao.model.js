@@ -144,4 +144,30 @@ Instituicao.removeAll = (result) => {
   });
 };
 
+Instituicao.login = ({ dsemail, dssenha }, result) => {
+  sql.query(
+    "SELECT * FROM tblinstituicao WHERE dsemail like '" +
+      dsemail +
+      "' and dssenha like '" +
+      dssenha +
+      "'",
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+
+      if (res.length) {
+        console.log("Usuário ou senha incorreta: ", res[0]);
+        result(null, res[0]);
+        return;
+      }
+
+      // not found Customer with the id
+      result({ kind: "not_found" }, null);
+    }
+  );
+};
+
 module.exports = Instituicao;

@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 
 require("./app/routes/instituicao.routes.js")(app);
 require("./app/routes/campanha.routes.js")(app);
+require("./app/routes/localdoacao.routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`O servidor está rodando na porta ${PORT}.`);
