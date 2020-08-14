@@ -4,6 +4,7 @@ import { TripService } from "../../services/trip-service";
 import { CheckoutTripPage } from "../checkout-trip/checkout-trip";
 import { InstituicaoService } from "../../services/instituicao-service";
 
+
 @Component({
   selector: 'page-instituicao-detail',
   templateUrl: 'instituicao-detail.html'
@@ -11,16 +12,26 @@ import { InstituicaoService } from "../../services/instituicao-service";
 export class InstituicaoDetailPage {
   // trip info
   public instituicao: any;
+
+  public listacampanha: any;
   // number of adult
   public adults = 2;
   // number of children
   public children = 0;
+
+  campanhasData: any;
 
   constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
     // set sample data
     this.instituicao = instituicaoService.getItem(1).subscribe(response => {
       console.log(response);
       this.instituicao = response;
+    })
+
+    this.listacampanha = instituicaoService.getCampanha(1).subscribe(response => {
+      console.log(response);
+      this.campanhasData = response;
+    //  .split(’,’)
     })
 
   }

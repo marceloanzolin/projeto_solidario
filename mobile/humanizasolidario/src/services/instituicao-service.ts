@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError,retry } from 'rxjs/operators';
 import { Instituicao } from  '../models/instituicao';
 import { AlertController } from 'ionic-angular';
+import { Campanha } from "../models/campanha";
 //import {throwError } from 'rxjs';
 
 //i//mport { Game } from '../models/game';
@@ -48,12 +49,21 @@ export class InstituicaoService {
   getCampanha(codinstituicao): Observable<Instituicao> {
 
     return this.http
-      .get<Instituicao>('http://localhost:3000/campanha/' + codinstituicao)
+      .get<Campanha>('http://localhost:3000/campanha/' + codinstituicao)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
+  }
 
+  getLocaldoacao(codcampanha): Observable<any> {
+
+    return this.http
+      .get<Campanha>('http://localhost:3000/campanha/' + codinstituicao)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 
 // update(instituicao){

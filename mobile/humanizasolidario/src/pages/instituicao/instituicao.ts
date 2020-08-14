@@ -18,6 +18,7 @@ export class InstituicaoPage {
  public totalinstituicao:Number;
  instituicoesData: any;
 
+
 //trips
   constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
 

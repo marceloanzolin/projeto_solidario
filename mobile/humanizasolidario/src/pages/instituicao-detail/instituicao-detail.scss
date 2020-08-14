@@ -39,4 +39,17 @@ page-instituicao-detail,
       }
     }
   }
+
+  .background-filtercampanha {
+    height: 3rem;
+    background-color:blue($color: #0c8d82) ;
+
+    .align-bottom {
+      width: 100%;
+
+      h6 {
+        margin-top: 0;
+      }
+    }
+  }
 }
