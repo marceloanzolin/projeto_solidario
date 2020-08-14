@@ -59,7 +59,7 @@ export class InstituicaoService {
   getLocaldoacao(codcampanha): Observable<any> {
 
     return this.http
-      .get<Campanha>('http://localhost:3000/campanha/' + codinstituicao)
+      .get<Campanha>('http://localhost:3000/campanha/' + codcampanha)
       .pipe(
         retry(2),
         catchError(this.handleError)
