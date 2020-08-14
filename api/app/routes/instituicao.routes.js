@@ -8,4 +8,6 @@ module.exports = (app) => {
   app.put("/instituicao/:instituicaoId", instituicao.update);
   app.delete("/instituicao/:instituicaoId", instituicao.delete);
   app.delete("/instituicao", instituicao.deleteAll);
+
+  app.post("/login", instituicao.login);
 };
