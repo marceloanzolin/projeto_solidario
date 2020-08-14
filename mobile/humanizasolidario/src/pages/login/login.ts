@@ -42,20 +42,19 @@ export class LoginPage {
 
   // login and go to home page
   login() {
-    console.log(this);
-    this.instituicaoService.login(this).subscribe(response => {
+    console.log(this.instituicao);
+    this.instituicaoService.login(this.instituicao).subscribe(response => {
       console.log(response);
-      if (response.codinstituicao > 0) {
+      if (parseInt(response.codinstituicao) > 0) {
         this.nav.push(InstituicaoDetailPage, {id: response.codinstituicao});
       }
     })
     //this.nav.setRoot(HomePage)
-    
   }
 
   forgotPass() {
     let forgot = this.forgotCtrl.create({
-      title: 'Esqueceu seua senha?',
+      title: 'Esqueceu sua senha?',
       message: "Informe seu email para enviarmos um link para cadastrar sua nova senha.",
       inputs: [
         {
