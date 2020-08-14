@@ -42,7 +42,8 @@ export class LoginPage {
 
   // login and go to home page
   login() {
-    var ret = this.instituicaoService.getItem(1).subscribe(response => {
+    console.log(this);
+    this.instituicaoService.login(this).subscribe(response => {
       console.log(response);
       if (response.codinstituicao > 0) {
         this.nav.push(InstituicaoDetailPage, {id: response.codinstituicao});

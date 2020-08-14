@@ -15,7 +15,7 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class InstituicaoService {
   private instituicoes: any;
-  private API_URL = 'http://localhost:3000/instituicao';
+  private API_URL = 'http://localhost:3000/';
   url: string;
 
   base_path = 'http://localhost:3000/instituicao';
@@ -25,7 +25,7 @@ export class InstituicaoService {
   getAll(): Observable<Instituicao> {
 
     return this.http
-      .get<Instituicao>(this.base_path)
+      .get<Instituicao>(this.API_URL+'instituicao')
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -37,7 +37,7 @@ export class InstituicaoService {
   getItem(id): Observable<Instituicao> {
 
     return this.http
-      .get<Instituicao>('http://localhost:3000/instituicao/' + id)
+      .get<Instituicao>(this.API_URL+'instituicao/' + id)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -48,13 +48,36 @@ export class InstituicaoService {
   getCampanha(codinstituicao): Observable<Instituicao> {
 
     return this.http
-      .get<Instituicao>('http://localhost:3000/campanha/' + codinstituicao)
+      .get<Instituicao>(this.API_URL+'campanha/' + codinstituicao)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
-
   }
+
+  save(post): Observable<Instituicao> {
+    return this.http
+      .post<Instituicao>(this.API_URL+'instituicao', post.instituicao)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+ 
+  login(post): Observable<Instituicao> {
+    console.log(post);
+    return this.http
+      .post<Instituicao>(this.API_URL+'login', post.instituicao)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+
+
+
+
 
 // update(instituicao){
 //   let body = new URLSearchParams();
@@ -66,18 +89,6 @@ export class InstituicaoService {
 // console.log(body.toString());
 // this.http.put(this.base_path, body.toString(), null).subscribe();
 // }
-
-save(post): Observable<Instituicao> {
-
-  return this.http
-    .post<Instituicao>(this.base_path, post.instituicao)
-    .pipe(
-      retry(2),
-      catchError(this.handleError)
-    )
-
-}
-
 // save(post){
 //   post.instituicao.dsstatus = 'A';
 
