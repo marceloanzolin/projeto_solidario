@@ -5,9 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from '@ionic-native/keyboard';
 
-import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
-import { LocalWeatherPage } from "../pages/local-weather/local-weather";
 import { TpusuarioPage } from "../pages/tpusuario/tpusuario";
 import { InstituicaoDetailPage } from "../pages/instituicao-detail/instituicao-detail";
 import { InstituicaoPage } from "../pages/instituicao/instituicao";
@@ -26,7 +24,7 @@ export interface MenuItem {
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TpusuarioPage;///TpusuarioPage;//LoginPage;///TpusuarioPage;//LoginPage;
+  rootPage: any = TpusuarioPage;
 
   appMenuItems: Array<MenuItem>;
 
@@ -39,8 +37,6 @@ export class MyApp {
     this.initializeApp();
 
     this.appMenuItems = [
-      {title: 'Home', component: HomePage, icon: 'home'},
-      {title: 'Local Weather', component: LocalWeatherPage, icon: 'partly-sunny'}
     ];
   }
 

@@ -2,7 +2,6 @@ import {Component} from "@angular/core";
 import {NavController} from "ionic-angular";
 import {LoginPage} from "../login/login";
 import {InstituicaoService} from "../../services/instituicao-service";
-import {HomePage} from "../home/home";
 import {TpusuarioPage} from "../tpusuario/tpusuario";
 import {InstituicaoPage} from "../instituicao/instituicao";
 import { AlertController } from 'ionic-angular';

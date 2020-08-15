@@ -1,8 +1,5 @@
 import {Component} from "@angular/core";
 import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
-import {HomePage} from "../home/home";
-//import {RegisterPage} from "../register/register";
-//import {TripsPage} from "../trips/trips";
 import { InstituicaoPage } from "../instituicao/instituicao";
 import { LoginPage } from "../login/login";
 

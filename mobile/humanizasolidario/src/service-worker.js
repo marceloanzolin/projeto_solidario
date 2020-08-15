@@ -17,7 +17,6 @@ self.toolbox.precache(
   ]
 );
 
-// dynamically cache any other local assets
 self.toolbox.router.any('/*', self.toolbox.cacheFirst);
 
 // for any other requests go to the network, cache,

@@ -23,7 +23,7 @@ exports.create = (req, res) => {
   Campanha.create(campanha, (err, data) => {
     if (err)
       res.status(500).send({
-        message: err.message || "Ocorreu erro ao criar a instituicao",
+        message: err.message || "Ocorreu erro ao criar a campanha",
       });
     else res.send(data);
   });
