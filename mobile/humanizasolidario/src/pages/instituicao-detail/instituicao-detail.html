@@ -32,7 +32,6 @@
         <ion-toolbar padding color="light">
           <p ion-text no-margin class="ion-text;text-white">
             <strong>{{ capanhas.dscampanha }}</strong>
-            <!--Sem Instituições Cadastradas -->
           </p>
         </ion-toolbar>
       </div>
@@ -40,7 +39,7 @@
 
       <ion-segment color="secondary" [(ngModel)]="paymethods">
         <ion-segment-button value="itens{{ capanhas.codcampanha }}">
-          Itens Doar
+          <strong></strong> Itens Doar
         </ion-segment-button>
         <ion-segment-button value="onde{{ capanhas.codcampanha }}" (click)="buscalocaldoar(capanhas.codcampanha);">
           Onde Doar
@@ -52,7 +51,7 @@
         <ion-grid *ngSwitchCase="'itens'+capanhas.codcampanha" padding>
           <div class="border-bottom" padding>
             <ion-icon name="checkmark" class="text-green"></ion-icon>
-            <span ion-text class="text-center">{{ capanhas.dsitemdoar }}</span>
+            <span ion-text class="text-center bold ">{{ capanhas.dsitemdoar }}</span>
           </div>
         </ion-grid>
 
@@ -61,78 +60,13 @@
         <ion-grid *ngSwitchCase="'onde'+capanhas.codcampanha" padding>
           <div class="border-bottom" padding>
             <div *ngFor="let localdoacao of doacaoData" tappable margin-bottom>
-              <ion-icon name="checkmark" class="text-green"></ion-icon> <span ion-text class="text-center">{{ localdoacao.dslocal }}  - {{localdoacao.dsfone1}}  -  {{localdoacao.dsendereco}}</span>
+              <ion-icon name="checkmark" class="text-green"></ion-icon> <span ion-text class="text-center bold">{{ localdoacao.dslocal }} - {{localdoacao.dsendereco}}</span>
             </div>
           </div>
         </ion-grid>
       </div>
 
-
     </div>
 
   </ion-content>
-
-  <!--booking form
-  <div class="booking-form card round" margin>
-    <div class="border-bottom" padding>
-      <h5>{{ instituicao.sub_name }}</h5>
-
-      <!--choose guest
-      <ion-grid class="filters" no-padding margin-top>
-        <ion-row>
-          <ion-col class="adult" width-70>
-            <span ion-text color="primary"><strong>{{ instituicao.price_adult | currency:'USD':true }}</strong> Adults</span>
-          </ion-col>
-          <ion-col width-10 text-center>
-            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusAdult()" [hidden]="adults < 2"
-                      color="secondary"></ion-icon>
-          </ion-col>
-          <ion-col width-10 text-center>{{ adults }}</ion-col>
-          <ion-col width-10 text-center>
-            <ion-icon name="add-circle" class="text-2x" tappable (click)="plusAdult()" color="secondary"></ion-icon>
-          </ion-col>
-        </ion-row>
-        <ion-row margin-top>
-          <ion-col width-70>
-            <span ion-text color="primary"><strong>{{ instituicao.price_child | currency:'USD':true }}</strong> Child (0-12 years)</span>
-          </ion-col>
-          <ion-col width-10 text-center>
-            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusChildren()" [hidden]="children < 1"
-                      color="secondary"></ion-icon>
-          </ion-col>
-          <ion-col width-10 text-center>{{ children }}</ion-col>
-          <ion-col width-10 text-center>
-            <ion-icon name="add-circle" class="text-2x" tappable (click)="plusChildren()" color="secondary"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div padding class="form-bottom">
-      <span ion-text color="dark" class="bold">{{ adults }} Adults</span> -->
-  <!--booking button-->
-  <!--
-      <button ion-button class="pull-right" color="secondary" tappable (click)="checkout()">Book Now {{ adults * instituicao.price_adult +
-        children * instituicao.price_child | currency:'USD':true }}
-      </button>
-      <div class="clear"></div>
-    
-    <button ion-button class="pull-right" color="secondary" tappable (click)="checkout()"> DOAR
-    </button>
-    <div class="clear"></div>
-    </div>
-  </div>
--->
-
-  <!--description
-  <div class="border-bottom" padding>
-    <span ion-text color="primary" class="bold">Descrição</span>
-    <p ion-text>{{ instituicao.description }}</p>
-  </div>
-
-  <!--address
-  <div class="border-bottom" padding>
-    <span ion-text color="primary" class="bold">Localização</span>
-    <p ion-text>{{ instituicao.location }}</p>
-  </div>
-  -->
 </ion-content>

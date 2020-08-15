@@ -10,8 +10,7 @@ import {Instituicao} from "../../models/instituicao";
   templateUrl: 'instituicao.html'
 })
 export class InstituicaoPage {
-  // list of trips
-  //public linstituicoes: any;
+  
  public  instituicoes: any;
  public  instituicoesara: any;
  public  instituicao:any;
@@ -19,7 +18,6 @@ export class InstituicaoPage {
  instituicoesData: any;
 
 
-//trips
   constructor(public nav: NavController, public instituicaoService: InstituicaoService) {
 
     this.instituicaoService.getAll().subscribe(response => {

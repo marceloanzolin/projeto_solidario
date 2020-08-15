@@ -5,6 +5,9 @@ import {InstituicaoService} from "../../services/instituicao-service";
 import {TpusuarioPage} from "../tpusuario/tpusuario";
 import {InstituicaoPage} from "../instituicao/instituicao";
 import { AlertController } from 'ionic-angular';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 
 @Component({
   selector: 'page-register',

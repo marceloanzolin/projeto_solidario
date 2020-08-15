@@ -9,13 +9,13 @@ import { InstituicaoService } from "../../services/instituicao-service";
 })
 export class InstituicaoDetailPage {
  
-  public instituicao: any;
+  public instituicao: any = [];
 
-  public listacampanha: any;
-  public listalocaldoacao: any;
+  public listacampanha: any = [];
+  public listalocaldoacao: any = [];
  
-  campanhasData: any;
-  doacaoData: any;
+  campanhasData: any = [];
+  doacaoData: any = [];
 
   constructor(public nav: NavController, public instituicaoService: InstituicaoService, public navParams: NavParams) {
 

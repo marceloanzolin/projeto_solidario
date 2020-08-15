@@ -7,6 +7,8 @@ import { Instituicao } from '../models/instituicao';
 import { AlertController } from 'ionic-angular';
 import { Campanha } from "../models/campanha";
 import { Localdoacao } from "../models/localdoacao";
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class InstituicaoService {
@@ -29,6 +31,7 @@ export class InstituicaoService {
         retry(2),
         catchError(this.handleError)
       )
+    
 
   }
 
@@ -46,7 +49,7 @@ export class InstituicaoService {
 
   getCampanha(codinstituicao): Observable<Instituicao> {
 
-    return this.http
+  return  this.http
       .get<Instituicao>(this.API_URL+'campanha/' + codinstituicao)
       .pipe(
         retry(2),
@@ -86,11 +89,6 @@ export class InstituicaoService {
 
   remove(item) {
     this.instituicoes.splice(this.instituicoes.indexOf(item), 1);
-  }
-
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
   }
 
   private handleError(error: Response | any) {
